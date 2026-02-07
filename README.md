@@ -1,34 +1,34 @@
-# 🚗 Sistem de Gestiune Parcare (TCP Socket Server)
+# 🚗 Parking Management System (TCP Socket Server)
 
-Un sistem client-server implementat în C pentru gestionarea automatizată a unei parcări. Proiectul utilizează socket-uri TCP și multiplexare I/O (`select`) pentru a gestiona conexiuni simultane fără a utiliza multithreading.
+A client-server system implemented in C for automated parking management. The project uses TCP sockets and I/O multiplexing (`select`) to handle simultaneous connections without using multithreading.
 
-## 📋 Descriere
+## 📋 Description
 
-Acest proiect simulează interacțiunea dintre un sistem de parcare (server) și șoferi (clienți). Serverul menține evidența locurilor libere/ocupate, calculează costul parcării în funcție de timpul staționat și procesează plățile.
+This project simulates the interaction between a parking system (server) and drivers (clients). The server tracks free/occupied spots, calculates parking costs based on duration, and processes payments.
 
-### Funcționalități Cheie:
-* **Server Concurent:** Utilizează `select()` pentru a gestiona mai mulți clienți simultan într-un singur proces.
-* **Protocol TCP:** Comunicare fiabilă între client și server.
-* **Logică de Business:**
-  * Alocare aleatorie a locurilor de parcare.
-  * Identificare pe bază de număr de înmatriculare.
-  * Calcul dinamic al prețului (bazat pe diferența de timp UNIX).
-  * Sistem de plată cu comandă dedicată și calcul de rest.
+### Key Features:
+* **Concurrent Server:** Uses `select()` to handle multiple clients simultaneously within a single process.
+* **TCP Protocol:** Reliable communication between client and server.
+* **Business Logic:**
+  * Random allocation of parking spots.
+  * Identification based on license plate number.
+  * Dynamic price calculation (based on UNIX time difference).
+  * Payment system with a dedicated command and change calculation.
 
-## 🛠️ Cerințe
+## 🛠️ Requirements
 
-* Sistem de operare: Linux / Unix (pentru bibliotecile `sys/socket.h`, `netinet/in.h`, `unistd.h`).
-* Compilator: GCC.
+* Operating System: Linux / Unix (required for `sys/socket.h`, `netinet/in.h`, `unistd.h` libraries).
+* Compiler: GCC.
 
-## 🚀 Instalare și Rulare
+## 🚀 Installation and Usage
 
-### 1. Compilare
+### 1. Compilation
 
-Deschide terminalul în directorul proiectului și compilează sursele:
+Open a terminal in the project directory and compile the sources:
 
 ```bash
-# Compilare Server
+# Compile Server
 gcc server.c -o server
 
-# Compilare Client
+# Compile Client
 gcc client.c -o client
